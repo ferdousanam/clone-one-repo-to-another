@@ -1,0 +1,63 @@
+name: 'Push one remote repository to another repository'
+description: 'Useful to push files to another repository to be used, for example, via github pages'
+
+inputs:
+  SRC_REPO_HOST:
+    description: 'Git source repository host github.com / bitbucket.org / gitlab.com'
+    required: false
+    default: 'github.com'
+  SRC_REPO_ORGANIZATION:
+    description: 'Git source repository organization'
+    required: true
+  SRC_REPO_NAME:
+    description: 'Git source repository name'
+    required: true
+  SRC_REPO_USERNAME:
+    description: 'Git source repository username'
+    required: true
+  SRC_REPO_PASSWORD:
+    description: 'Git source repository password'
+    required: true
+  DEST_REPO_HOST:
+    description: 'Git destination repository host github.com / bitbucket.org'
+    required: false
+    default: 'github.com'
+  DEST_REPO_ORGANIZATION:
+    description: 'Git destination repository organization'
+    required: true
+  DEST_REPO_NAME:
+    description: 'Git destination repository name'
+    required: true
+  DEST_REPO_USERNAME:
+    description: 'Git destination repository username'
+    required: true
+  DEST_REPO_PASSWORD:
+    description: 'Git destination repository password'
+    required: true
+  GIT_EMAIL:
+    description: 'Git user email'
+    required: false
+  GIT_NAME:
+    description: 'Git user name'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.SRC_REPO_HOST }}
+    - ${{ inputs.SRC_REPO_ORGANIZATION }}
+    - ${{ inputs.SRC_REPO_NAME }}
+    - ${{ inputs.SRC_REPO_USERNAME }}
+    - ${{ inputs.SRC_REPO_PASSWORD }}
+    - ${{ inputs.DEST_REPO_HOST }}
+    - ${{ inputs.DEST_REPO_ORGANIZATION }}
+    - ${{ inputs.DEST_REPO_NAME }}
+    - ${{ inputs.DEST_REPO_USERNAME }}
+    - ${{ inputs.DEST_REPO_PASSWORD }}
+    - ${{ inputs.GIT_EMAIL }}
+    - ${{ inputs.GIT_NAME }}
+
+branding:
+  icon: 'git-commit'
+  color: 'green'
