@@ -22,7 +22,7 @@ whoami
 pwd
 ls -al
 echo "========================================================"
-echo "<3 Variables <3"
+echo "♡ Variables ♡"
 echo "========================================================"
 
 echo "SRC_REPO_HOST: " $SRC_REPO_HOST
